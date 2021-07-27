@@ -2,14 +2,16 @@ import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchProducts } from '../../redux/actions/actions'
 
-function Products(props) {
+function Products({products, fetchProducts}) {
     useEffect(()=>{
-        props.fetchProducts()
+        fetchProducts()
     },[])
-    console.log(props.products)
+    console.log(products)
     return (
         <div>
-            this is products page
+            {
+                products.map(item => item.title)
+            }
         </div>
     )
 }
