@@ -33,7 +33,7 @@ const validate=(data)=>{
 
     return errors
 }
-function AddressForm({next}) {
+function AddressForm({sendAddress}) {
     
 
    
@@ -46,7 +46,7 @@ function AddressForm({next}) {
         <Formik
             initialValues={initialValues}
             validate={validate}
-            onSubmit={(values)=>alert(values)}
+            onSubmit={(values)=>sendAddress(values)}
         >
             <Form>
             <Row className='text-left'>
