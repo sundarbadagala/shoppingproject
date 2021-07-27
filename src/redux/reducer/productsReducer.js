@@ -15,11 +15,24 @@ const inititalState={
 const shopReducer=(state=inititalState, action)=>{
     switch(action.type){
         case actionTypes.FETCH_PRODUCTS_REQUEST:
-            return{...state, loading:true}
+            return{
+                ...state, 
+                loading:true
+            }
         case actionTypes.FETCH_PRODUCTS_SUCCESS:
-            return{...state, loading:false, error:'', products:action.payload.data}
+            return{
+                ...state, 
+                loading:false, 
+                error:'', 
+                products:action.payload.data
+            }
         case actionTypes.FETCH_PRODUCTS_FAIL:
-            return{...state, loading:false, error:action.payload.data, products:[]}
+            return{
+                ...state, 
+                loading:false, 
+                error:action.payload.data, 
+                products:[]
+            }
         case actionTypes.ADD_TO_CART:
             const item =state.products.find(item => item.id === action.payload.id)
             const inCart = state.cart.find(item => item.id === action.payload.id ? true : false) 
@@ -43,6 +56,16 @@ const shopReducer=(state=inititalState, action)=>{
             return{
                 ...state,
                 cart: []
+            }
+        case actionTypes.ADD_ADDRESS_DATA:
+            return{
+                ...state, 
+                address:action.payload
+            }
+        case actionTypes.ADD_PAYMENT_DATA:
+            return{
+                ...state, 
+                payment:action.payload
             }
         default:
             return state

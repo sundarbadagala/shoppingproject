@@ -65,3 +65,16 @@ export const clearCart=()=>{
     }
 }
 
+export const addressData=(address)=>{
+    return{
+        type: actionTypes.ADD_ADDRESS_DATA,
+        payload: address
+    }
+}
+
+export const paymentData=(payment)=>{
+    return{
+        type: actionTypes.ADD_PAYMENT_DATA,
+        payload: payment
+    }
+}
