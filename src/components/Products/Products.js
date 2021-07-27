@@ -5,7 +5,7 @@ import Loading from './Loading'
 import Error from './Error'
 import ProductsCard from './ProductsCard'
 
-function Products({products, fetchProducts, loading, error}) {
+function Products({products, fetchProducts, loading, error, cart}) {
     const [cardFlex, setCardFlex]= useState('justify-content-center')
     useEffect(()=>{
         fetchProducts()
@@ -22,6 +22,7 @@ function Products({products, fetchProducts, loading, error}) {
     },[])
     window.addEventListener('resize', adjustCardFlex)
     console.log(products)
+    console.log(cart)
     return (
         <div className=''>
         <div className={`d-flex flex-wrap ${cardFlex} border border-success` }>
@@ -37,7 +38,8 @@ const mapStateToProps=(state)=>{
     return{
         products : state.shop.products,
         loading: state.shop.loading,
-        error: state.shop.error
+        error: state.shop.error,
+        cart:state.shop.cart
     }
 }
 

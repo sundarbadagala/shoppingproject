@@ -1,14 +1,15 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
 import {Currency} from '../currencyFormat'
+import {connect} from 'react-redux'
+import {addToCart} from '../../redux/actions/actions'
 
 function ProductCard(props) {
     const {product} = props
     return (
         <div>
             <Card className='m-3 card-width'>
-                <Link to={'/product/'+product.id}><Card.Img src={product.image} alt='' className='products-banner'/></Link>
+                <Card.Img src={product.image} alt='' className='products-banner'/>
                 <Card.Header className='p-2'>
                         <div className='product-title'  style={{height:'50px'}}>{product.title}</div>
                 </Card.Header>
@@ -17,6 +18,7 @@ function ProductCard(props) {
                         {Currency(product.price)}
                     <Button 
                         className='px-4'
+                        onClick={()=>props.addToCart(product.id)}
                     >
                     <i className="fas fa-cart-plus"></i>
                     </Button>
@@ -28,5 +30,10 @@ function ProductCard(props) {
     )
 }
 
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        addToCart: (id)=>dispatch(addToCart(id))
+    }
+}
 
-export default ProductCard
+export default connect(null, mapDispatchToProps)(ProductCard)
