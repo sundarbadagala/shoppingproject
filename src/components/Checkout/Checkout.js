@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 import {Container, Row, Col, Card, Button, ButtonGroup} from 'react-bootstrap'
 import {Currency} from '../currencyFormat'
+import {clearCart} from '../../redux/actions/actions'
 
 function Checkout(props) {
     const {cart} = props
@@ -55,5 +56,9 @@ const mapStateToProps=(state)=>{
         shop: state.shop
     }
 }
-
-export default connect(mapStateToProps, null)(Checkout)
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        clearCart: ()=>dispatch(clearCart()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
