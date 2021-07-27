@@ -3,13 +3,14 @@ import {Card, Button} from 'react-bootstrap'
 import {Currency} from '../currencyFormat'
 import {connect} from 'react-redux'
 import {addToCart} from '../../redux/actions/actions'
+import {Link} from 'react-router-dom'
 
 function ProductCard(props) {
     const {product} = props
     return (
         <div>
             <Card className='m-3 card-width'>
-                <Card.Img src={product.image} alt='' className='products-banner'/>
+            <Link to={'/product/'+product.id}><Card.Img src={product.image} alt='' className='products-banner'/></Link>
                 <Card.Header className='p-2'>
                         <div className='product-title'  style={{height:'50px'}}>{product.title}</div>
                 </Card.Header>
