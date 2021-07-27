@@ -1,10 +1,17 @@
 import React from 'react'
-import {Container, Col, Row} from 'react-bootstrap'
+import {Container, Col, Row, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import { clearCart } from '../../redux/actions/actions'
+import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
-function ConfirmationForm({shop}) {
+function ConfirmationForm({shop, clearCart}) {
     const {address, cart}= shop
+    const history= useHistory()
+    const clickHanlder=()=>{
+        clearCart()
+        history.push('/')
+    }
     return (
         <Container className='border'>
             <Row className='text-center m-3'>
@@ -19,7 +26,7 @@ function ConfirmationForm({shop}) {
                         {
                             cart.map(item => <div key={item.id}><span>{item.title} </span> <span>{item.qty} {item.qty * item.price}</span></div>)
                         }
-                        
+                        <Button onClick={clickHanlder}>Home</Button>
                 </Col>
             </Row>
         </Container>
