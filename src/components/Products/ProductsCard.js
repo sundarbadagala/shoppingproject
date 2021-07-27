@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {Currency} from '../currencyFormat'
 
 function ProductCard(props) {
     const {product} = props
@@ -13,7 +14,7 @@ function ProductCard(props) {
                 </Card.Header>
                 <Card.Body className='p-1'>
                     <div className='d-flex justify-content-around align-items-center font-weight-bold'>
-                        {product.price}
+                        {Currency(product.price)}
                     <Button 
                         className='px-4'
                     >
