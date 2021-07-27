@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 import {Container, Row, Col, Card, Button, ButtonGroup} from 'react-bootstrap'
 import {Currency} from '../currencyFormat'
-import {clearCart} from '../../redux/actions/actions'
+import {clearCart, addressData, paymentData} from '../../redux/actions/actions'
 import AddressForm from './AddressForm'
+import PaymentForm from './PaymentForm'
 
 function Checkout(props) {
     const {cart} = props
     const [totalPrice, setTotalPrice]= useState(0)
     const [totalItems, setTotalItems]= useState(0)
     const [showAddressForm, setShowAddressForm]= useState(false)
+    const [showPaymentForm, setShowPayementForm]= useState(false)
     useEffect(()=>{
         let items=0
         let price=0
@@ -20,7 +22,11 @@ function Checkout(props) {
         setTotalItems(items)
         setTotalPrice(price)
     },[cart, totalPrice, setTotalPrice, totalItems, setTotalItems])
-    
+    const sendAddress=(values)=>{
+        addressData(values)
+        setShowPayementForm(true)
+
+    }
     //console.log(props.shop)
     return (
         <Container>
@@ -51,10 +57,17 @@ function Checkout(props) {
             <Row className='p-2 text-center'>
             <Col>
                 {
-                    showAddressForm && <AddressForm  /> 
+                    showAddressForm && <AddressForm  sendAddress={sendAddress}/> 
                 }
             </Col>
         </Row>
+        <Row className='p-2'>
+                <Col>
+                {
+                    showPaymentForm && <PaymentForm/> 
+                }
+                </Col>
+            </Row>
         </Container>
     )
 }
