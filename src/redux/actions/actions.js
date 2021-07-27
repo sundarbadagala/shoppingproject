@@ -59,4 +59,9 @@ export const removeFromCart=(itemID)=>{
     }
 }
 
+export const clearCart=()=>{
+    return{
+        type: actionTypes.CLEAR_CART
+    }
+}
 
