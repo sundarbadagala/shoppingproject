@@ -64,6 +64,10 @@
   width: 80%;
   height: 350px;
 }
+/* filter bar */
+.filter-bar {
+  box-shadow: 0px 0px 7px 0px black;
+}
 /* ----------------media screen-------------------- */
 @media screen and (max-width: 500px) {
   .card-width {
