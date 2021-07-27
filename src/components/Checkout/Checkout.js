@@ -5,6 +5,7 @@ import {Currency} from '../currencyFormat'
 import {clearCart, addressData, paymentData} from '../../redux/actions/actions'
 import AddressForm from './AddressForm'
 import PaymentForm from './PaymentForm'
+import {useHistory} from 'react-router-dom'
 
 function Checkout(props) {
     const {cart} = props
@@ -12,6 +13,7 @@ function Checkout(props) {
     const [totalItems, setTotalItems]= useState(0)
     const [showAddressForm, setShowAddressForm]= useState(false)
     const [showPaymentForm, setShowPayementForm]= useState(false)
+    const history = useHistory()
     useEffect(()=>{
         let items=0
         let price=0
@@ -35,6 +37,7 @@ function Checkout(props) {
             number:cardNumber,
             cvv: cardCvv
         })
+        history.push('/confirm')
     }
     console.log(props.shop)
     return (
