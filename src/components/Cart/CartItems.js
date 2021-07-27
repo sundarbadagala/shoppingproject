@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import {Button} from 'react-bootstrap'
+import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Currency} from '../currencyFormat'
+import {removeFromCart, adjustQty} from '../../redux/actions/actions'
 
 function CartCard(props) {
     const {product} = props
     const [input, setInput]= useState(product.qty)
     const changeHandler=(e)=>{
         setInput(e.target.value)
+        props.adjustQty(product.id, e.target.value)
     }
     //console.log(props.product)
     return (
@@ -41,6 +44,7 @@ function CartCard(props) {
                     className=' ml-2' 
                     variant='secondary' 
                     size='sm' 
+                    onClick={()=>props.removeFromCart(product.id)}
                 >
                     <i className="fas fa-trash-alt"></i>
                 </Button><br/><br/>
@@ -50,4 +54,13 @@ function CartCard(props) {
     )
 }
 
-export default CartCard
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        // itemIncrement: (id)=>dispatch(itemIncrement(id)),
+        // itemDecrement: (id)=>dispatch(itemDecrement(id)),
+        removeFromCart : (id)=>dispatch(removeFromCart(id)),
+        adjustQty: (id, value)=> dispatch(adjustQty(id, value))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CartCard)
