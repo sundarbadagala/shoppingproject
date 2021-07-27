@@ -3,11 +3,13 @@ import {connect} from 'react-redux'
 import {Container, Row, Col, Card, Button, ButtonGroup} from 'react-bootstrap'
 import {Currency} from '../currencyFormat'
 import {clearCart} from '../../redux/actions/actions'
+import AddressForm from './AddressForm'
 
 function Checkout(props) {
     const {cart} = props
     const [totalPrice, setTotalPrice]= useState(0)
     const [totalItems, setTotalItems]= useState(0)
+    const [showAddressForm, setShowAddressForm]= useState(false)
     useEffect(()=>{
         let items=0
         let price=0
@@ -38,7 +40,7 @@ function Checkout(props) {
                                 <Button variant='primary' onClick={props.clearCart}>
                                     Clear Cart
                                 </Button>
-                                <Button variant='primary'>
+                                <Button variant='primary' onClick={()=>setShowAddressForm(true)}>
                                     Proceed To Checkout
                                 </Button>
                             </ButtonGroup>
@@ -46,6 +48,13 @@ function Checkout(props) {
                     </Card>
                 </Col>
             </Row>
+            <Row className='p-2 text-center'>
+            <Col>
+                {
+                    showAddressForm && <AddressForm  /> 
+                }
+            </Col>
+        </Row>
         </Container>
     )
 }
