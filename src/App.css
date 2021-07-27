@@ -33,3 +33,31 @@
   font-weight: 500;
   color: gray;
 }
+/* -------------products card---------------- */
+
+.product-title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card-width {
+  width: 210px;
+  overflow: hidden;
+}
+.products-banner {
+  height: 300px;
+}
+.products-banner:hover {
+  transform: scale(1.1, 1.1);
+  transition: all 0.5s ease-out;
+}
+/* ----------------media screen-------------------- */
+@media screen and (max-width: 500px) {
+  .card-width {
+    width: 150px;
+  }
+  .products-banner {
+    height: 200px;
+  }
+}
