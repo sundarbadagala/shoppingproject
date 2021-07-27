@@ -23,11 +23,20 @@ function Checkout(props) {
         setTotalPrice(price)
     },[cart, totalPrice, setTotalPrice, totalItems, setTotalItems])
     const sendAddress=(values)=>{
-        addressData(values)
+        props.addressData(values)
+        console.log(values)
         setShowPayementForm(true)
 
     }
-    //console.log(props.shop)
+    const sendPayment=(paymentMethod,cardNumber, cardCvv, e)=>{
+        e.preventDefault()
+        props.paymentData({
+            method:paymentMethod,
+            number:cardNumber,
+            cvv: cardCvv
+        })
+    }
+    console.log(props.shop)
     return (
         <Container>
             <Row className='p-2 text-center'>
@@ -64,7 +73,7 @@ function Checkout(props) {
         <Row className='p-2'>
                 <Col>
                 {
-                    showPaymentForm && <PaymentForm/> 
+                    showPaymentForm && <PaymentForm send={sendPayment}/> 
                 }
                 </Col>
             </Row>
@@ -81,6 +90,8 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
     return{
         clearCart: ()=>dispatch(clearCart()),
+        addressData: (data)=>dispatch(addressData(data)),
+        paymentData: (data)=>dispatch(paymentData(data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
