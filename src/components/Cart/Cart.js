@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import CartFull from './CartFull'
+import CartEmpty from './CartEmpty'
 
 function Cart(props) {    
     return (
         <React.Fragment>
             {
-                props.cart.length && props.cart.map(item => item.title)
+                props.cart.length ? <CartFull/> : <CartEmpty/>
             }
         </React.Fragment>
     )
