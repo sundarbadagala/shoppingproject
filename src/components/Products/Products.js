@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchProducts } from '../../redux/actions/actions'
+import Loading from './Loading'
+import Error from './Error'
 
-function Products({products, fetchProducts}) {
+function Products({products, fetchProducts, loading, error}) {
     useEffect(()=>{
         fetchProducts()
     },[])
@@ -10,7 +12,7 @@ function Products({products, fetchProducts}) {
     return (
         <div>
             {
-                products.map(item => item.title)
+                loading ? <Loading/> : error ? <Error error={error}/> : products.map(item => item.title)
             }
         </div>
     )
@@ -18,7 +20,9 @@ function Products({products, fetchProducts}) {
 
 const mapStateToProps=(state)=>{
     return{
-        products : state.shop.products
+        products : state.shop.products,
+        loading: state.shop.loading,
+        error: state.shop.error
     }
 }
 
