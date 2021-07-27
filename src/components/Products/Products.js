@@ -14,7 +14,7 @@ function Products({products, fetchProducts, loading, error}) {
         if(window.innerWidth < 500){
             setCardFlex('justify-content-around')
         }else if(window.innerWidth > 500){
-            setCardFlex('justify-content-start')
+            setCardFlex('justify-content-center')
         }
     }
     useEffect(()=>{
@@ -23,10 +23,12 @@ function Products({products, fetchProducts, loading, error}) {
     window.addEventListener('resize', adjustCardFlex)
     console.log(products)
     return (
-        <div className={`d-flex flex-wrap ${cardFlex}` }>
+        <div className=''>
+        <div className={`d-flex flex-wrap ${cardFlex} border border-success` }>
             {
                 loading ? <Loading/> : error ? <Error error={error}/> : products.map(item => <ProductsCard key={item.id} product={item}/>)
             }
+        </div>
         </div>
     )
 }
