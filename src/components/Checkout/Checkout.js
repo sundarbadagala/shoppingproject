@@ -52,10 +52,10 @@ function Checkout(props) {
                                 Total Price: {Currency(totalPrice)} <br/>
                             </div>
                             <ButtonGroup style={{width:'100%'}}>
-                                <Button variant='primary' onClick={props.clearCart}>
+                                <Button variant='dark' onClick={props.clearCart}>
                                     Clear Cart
                                 </Button>
-                                <Button variant='primary' onClick={()=>setShowAddressForm(true)}>
+                                <Button variant='dark' onClick={()=>setShowAddressForm(true)}>
                                     Proceed To Checkout
                                 </Button>
                             </ButtonGroup>

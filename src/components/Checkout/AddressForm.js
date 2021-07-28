@@ -143,7 +143,7 @@ function AddressForm({sendAddress}) {
             </Row>
             <Row>
                 <Col className='m-1 p-0'>
-                <Button block type='submit' className=''>
+                <Button block type='submit' variant='dark'>
                     Submit
                 </Button>
                 </Col>

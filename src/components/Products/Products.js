@@ -106,7 +106,7 @@ function Products({products, fetchProducts, loading, error}) {
                 />
             </Col>
         </Row>
-        <Row>
+        <Row className='products-page'>
            <Col className={`d-flex flex-wrap ${cardFlex}` } >
            {
             loading ? <Loading/> : (error ? <Error error={error}/> : 

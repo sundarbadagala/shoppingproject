@@ -77,7 +77,7 @@ function PaymentForm({send}) {
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
-                <Button block type='submit'>Submit</Button>
+                <Button block type='submit' variant='dark'>Submit</Button>
                 </form>
             </Card.Body>
         </Card>

@@ -13,7 +13,7 @@ function Navbar({cart}) {
         setCartCount(count)
     },[cart])
     return (
-        <Container fluid className='bg-primary p-2'>
+        <Container fluid className='bg-dark p-2'>
             <Row>
                 <Col className='ml-3'>
                     <h3>
@@ -23,15 +23,16 @@ function Navbar({cart}) {
                     </h3>
                 </Col>
                 <Col className='d-flex justify-content-end mr-3'>
-                <Link to='/cart'>
-                    <Button variant='warning'  className='font-weight-bold'>
+                <div><Link to='/cart'>
+                    <Button variant='secondary'  className='font-weight-bold'>
                         <i className="fas fa-shopping-cart"></i>
                         <span className='m-2 nav-cart-title'>My Cart </span>
                         {
-                            cartCount ?<Badge pill variant='danger'>{cartCount}</Badge> : null
+                            cartCount ?<Badge pill variant='warning' className='text-dark'>{cartCount}</Badge> : null
                         }
                     </Button>
                 </Link>
+                </div>
                 </Col>
             </Row>
         </Container>

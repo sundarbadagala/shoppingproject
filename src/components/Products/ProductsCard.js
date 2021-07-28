@@ -17,7 +17,8 @@ function ProductCard(props) {
                 <Card.Body className='p-1'>
                     <div className='d-flex justify-content-around align-items-center font-weight-bold'>
                         {Currency(product.price)}
-                    <Button 
+                    <Button
+                        variant='dark' 
                         className='px-4'
                         onClick={()=>props.addToCart(product.id)}
                     >
