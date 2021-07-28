@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Card, Button} from 'react-bootstrap'
 import {Currency} from '../currencyFormat'
 import {connect} from 'react-redux'
@@ -7,6 +7,15 @@ import {Link} from 'react-router-dom'
 
 function ProductCard(props) {
     const {product} = props
+    const [buttonSize, setButtonSize]= useState('px-4')
+    const adjustButtonSize=()=>{
+        if(window.innerWidth < 500){
+            setButtonSize('px-2')
+        }else if(window.innerWidth > 500){
+            setButtonSize('px-4')
+        }
+    }
+    window.addEventListener('resize', adjustButtonSize)
     return (
         <div>
             <Card className='m-3 card-width'>
@@ -19,7 +28,7 @@ function ProductCard(props) {
                         {Currency(product.price)}
                     <Button
                         variant='dark' 
-                        className='px-4'
+                        className={`${buttonSize}`}
                         onClick={()=>props.addToCart(product.id)}
                     >
                     <i className="fas fa-cart-plus"></i>
