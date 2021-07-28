@@ -12,7 +12,6 @@ function CartCard(props) {
         setInput(e.target.value)
         props.adjustQty(product.id, e.target.value)
     }
-    //console.log(props.product)
     return (
         <div className=" d-flex m-1 mb-3 border p-3">
             <div className="">
@@ -56,8 +55,6 @@ function CartCard(props) {
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-        // itemIncrement: (id)=>dispatch(itemIncrement(id)),
-        // itemDecrement: (id)=>dispatch(itemDecrement(id)),
         removeFromCart : (id)=>dispatch(removeFromCart(id)),
         adjustQty: (id, value)=> dispatch(adjustQty(id, value))
     }

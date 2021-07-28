@@ -6,7 +6,7 @@ function Loading() {
         <div className='spin-loading'>
             <Spinner 
                 animation="border" 
-                variant='light' 
+                variant='dark' 
                 size='lg' 
                 style={{width:'100px', height:'100px'}}
             />

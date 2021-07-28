@@ -23,12 +23,12 @@ const validate=(data)=>{
         errors.mail= 'Enter Your Mail'
     }else if(!/^([a-z0-9._-]+)@([a-z0-9]+).([a-z]{2,8})(.[a-z]{2,8})?$/i.test(data.mail)){
         errors.mail='Invalid mail'
-    }else if(!data.address1){
-        errors.address1='Enter Your address1'
     }else if(!data.city){
         errors.city= 'Enter Your City'
     }else if(!data.pin){
         errors.pin = 'Enter Your Pin'
+    }else if(!data.address1){
+        errors.address1='Enter Your address'
     }
 
     return errors
@@ -108,7 +108,7 @@ function AddressForm({sendAddress}) {
                     Pin
                 </label>
                 <Field 
-                    type='text' 
+                    type='number' 
                     name='pin' 
                     placeholder='Pin'  
                     className='p-1 border rounded' 

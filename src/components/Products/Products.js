@@ -6,12 +6,13 @@ import Loading from './Loading'
 import Error from './Error'
 import {Container, Row, Col} from 'react-bootstrap'
 
-function Products({products, fetchProducts, loading, error}) {
+function Products(props) {
+    const {products, fetchProducts, loading, error} = props
     const [category, setCategory]= useState('all')
     const [price, setPrice]= useState('')
     const [cardFlex, setCardFlex]= useState('justify-content-center')
     const [order, setOrder]= useState('order-5')
-    const [value, setData]= useState([])
+    const [data, setData]= useState([])
     const [submitValue, setSubmitValue]= useState('')
     useEffect(()=>{
         fetchProducts()
@@ -40,7 +41,7 @@ function Products({products, fetchProducts, loading, error}) {
         setPrice(e.target.value)
         const sort = e.target.value
         setData(
-            value.sort((a,b)=>(
+            data.sort((a,b)=>(
                 sort === 'lowest' ? ((a.price > b.price) ? 1 : -1) :
                 sort === 'highest' ? ((a.price < b.price)? 1 : -1) : ((a.id < b.id) ? 1 : -1)
             ))
@@ -57,11 +58,15 @@ function Products({products, fetchProducts, loading, error}) {
         <Container fluid>
         <Row className='d-flex justify-content-around p-2 filter-bar'>
             <Col md={3} xs={6}  className='order-1'>
-                Products : {value.length}
+                Products : {data.length}
             </Col>
             <Col md={3} xs={6} className='order-3'>
             <span className='mr-1 products-category'>Category</span>
-            <select value={category} onChange={(e)=>filterProducts(e)} className=' col-category'>
+            <select 
+                value={category} 
+                onChange={(e)=>filterProducts(e)} 
+                className=' col-category'
+            >
                 <option value='all'>
                     All
                 </option>
@@ -80,8 +85,12 @@ function Products({products, fetchProducts, loading, error}) {
             </select>
             </Col>
             <Col md={3} xs={6} className='order-4'>
-            <span className='mr-1 products-filter'>Filter</span>
-            <select value={price} onChange={(e)=>sortProducts(e)} className=' col-category'>
+            <span className='mr-1 products-filter'>Sort</span>
+            <select 
+                value={price} 
+                onChange={(e)=>sortProducts(e)} 
+                className=' col-category'
+            >
                 <option value='latest'>
                     Latest
                 </option>
@@ -110,7 +119,7 @@ function Products({products, fetchProducts, loading, error}) {
            <Col className={`d-flex flex-wrap ${cardFlex}` } >
            {
             loading ? <Loading/> : (error ? <Error error={error}/> : 
-                value
+                data
                 .filter(item => item.title.toLowerCase().includes(submitValue.toLocaleLowerCase()))
                 .map(item => <ProductCard key={item.id} product={item} />
             ))

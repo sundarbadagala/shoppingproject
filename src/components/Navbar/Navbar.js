@@ -8,7 +8,7 @@ function Navbar({cart}) {
     useEffect(()=>{
         let count=0
         cart && cart.forEach(item => {
-            count = count + item.qty
+            count = count + parseInt(item.qty)
         })
         setCartCount(count)
     },[cart])
