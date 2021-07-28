@@ -20,7 +20,7 @@ function Products({products, fetchProducts, loading, error}) {
         if(window.innerWidth < 500){
             setCardFlex('justify-content-around')
         }else if(window.innerWidth > 500){
-            setCardFlex('justify-content-start')
+            setCardFlex('justify-content-center')
         }
     }
     const adjustFilterBarOrder=()=>{
