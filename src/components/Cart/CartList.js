@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import CartItems from './CartItems'
 
 function Cart(props) {
-    console.log(props.cart)
+    // console.log(props.cart)
     return (
         <div>
         

@@ -5,7 +5,6 @@ const inititalState={
     error:'',
     products:[],
     cart:[],
-    currentItem:null,
     address:{},
     payment:{}
 }

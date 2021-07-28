@@ -17,8 +17,8 @@ function Navbar({cart}) {
             <Row>
                 <Col className='ml-3'>
                     <h3>
-                        <Link  to='/' className='text-light text-decoration-none font-weight-bold font-italic'>
-                            Footwear
+                        <Link  to='/' className='text-light text-decoration-none font-weight-bold font-italic nav-title'>
+                            Shopping Cart
                         </Link>
                     </h3>
                 </Col>
@@ -26,9 +26,9 @@ function Navbar({cart}) {
                 <Link to='/cart'>
                     <Button variant='warning'  className='font-weight-bold'>
                         <i className="fas fa-shopping-cart"></i>
-                        <span className='m-2'>My Cart </span>
+                        <span className='m-2 nav-cart-title'>My Cart </span>
                         {
-                            cartCount ?<Badge variant='danger'>{cartCount}</Badge> : null
+                            cartCount ?<Badge pill variant='danger'>{cartCount}</Badge> : null
                         }
                     </Button>
                 </Link>

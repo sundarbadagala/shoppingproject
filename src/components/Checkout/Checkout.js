@@ -26,9 +26,7 @@ function Checkout(props) {
     },[cart, totalPrice, setTotalPrice, totalItems, setTotalItems])
     const sendAddress=(values)=>{
         props.addressData(values)
-        console.log(values)
         setShowPayementForm(true)
-
     }
     const sendPayment=(paymentMethod,cardNumber, cardCvv, e)=>{
         e.preventDefault()
@@ -39,7 +37,6 @@ function Checkout(props) {
         })
         history.push('/confirm')
     }
-    console.log(props.shop)
     return (
         <Container>
             <Row className='p-2 text-center'>
@@ -87,7 +84,6 @@ function Checkout(props) {
 const mapStateToProps=(state)=>{
     return{
         cart: state.shop.cart,
-        shop: state.shop
     }
 }
 const mapDispatchToProps=(dispatch)=>{

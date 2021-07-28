@@ -51,35 +51,83 @@ function AddressForm({sendAddress}) {
             <Form>
             <Row className='text-left'>
                 <Col className='p-1' md={6} xs={6}>
-                <label htmlFor='firstName'>First Name</label>
-                <Field type='text' name='firstName' placeholder='first Name' className='p-1 border rounded' style={{width:'100%'}}/>
+                <label htmlFor='firstName'>
+                    First Name
+                </label>
+                <Field 
+                    type='text' 
+                    name='firstName' 
+                    placeholder='first Name' 
+                    className='p-1 border rounded' 
+                    style={{width:'100%'}}
+                />
                 </Col>
                 <Col className='p-1' md={6}  xs={6}>
-                <label htmlFor='lastName'>Last Name</label>
-                <Field type='text' name='lastName' placeholder='Last Name'  className='p-1 border rounded' style={{width:'100%'}}/>
+                <label htmlFor='lastName'>
+                    Last Name
+                </label>
+                <Field 
+                    type='text' 
+                    name='lastName' 
+                    placeholder='Last Name'  
+                    className='p-1 border rounded' 
+                    style={{width:'100%'}}
+                />
                 </Col>
             </Row>
             <Row className='text-left'>
                 <Col className='p-1' md={12}>
-                <label htmlFor='mail'>Mail</label>
-                <Field type='text' name='mail' placeholder='Mail' className='p-1 border rounded' style={{width:'100%'}}/>
+                <label htmlFor='mail'>
+                    Mail
+                </label>
+                <Field 
+                    type='text' 
+                    name='mail' 
+                    placeholder='Mail' 
+                    className='p-1 border rounded' 
+                    style={{width:'100%'}}
+                />
                 </Col>
                 
             </Row>
             <Row className='text-left'>
                 <Col className='p-1' md={6} xs={6} >
-                <label htmlFor='city'>City</label>
-                <Field type='text' name='city' placeholder='City' className='p-1 border rounded' style={{width:'100%'}}/>
+                <label htmlFor='city'>
+                    City
+                </label>
+                <Field 
+                    type='text' 
+                    name='city' 
+                    placeholder='City' 
+                    className='p-1 border rounded' 
+                    style={{width:'100%'}}
+                />
                 </Col>
                 <Col className='p-1' md={6} xs={6}>
-                <label htmlFor='pin'>Pin</label>
-                <Field type='text' name='pin' placeholder='Pin'  className='p-1 border rounded' style={{width:'100%'}}/>
+                <label htmlFor='pin'>
+                    Pin
+                </label>
+                <Field 
+                    type='text' 
+                    name='pin' 
+                    placeholder='Pin'  
+                    className='p-1 border rounded' 
+                    style={{width:'100%'}}
+                />
                 </Col>
             </Row>
             <Row className='text-left'>
                 <Col className=' p-1' md={12}>
-                <label htmlFor='address1'>Address</label><br/>
-                <Field type='text' name='address1' placeholder='Address' className='p-1 border rounded' style={{width:"100%"}}/>
+                <label htmlFor='address1'>
+                    Address
+                </label><br/>
+                <Field 
+                    type='text' 
+                    name='address1' 
+                    placeholder='Address' 
+                    className='p-1 border rounded' 
+                    style={{width:"100%"}}
+                />
             </Col>
             </Row>
            
@@ -95,7 +143,9 @@ function AddressForm({sendAddress}) {
             </Row>
             <Row>
                 <Col className='m-1 p-0'>
-                <Button block type='submit' className=''>Submit</Button>
+                <Button block type='submit' className=''>
+                    Submit
+                </Button>
                 </Col>
             </Row>
             </Form>
@@ -107,4 +157,3 @@ function AddressForm({sendAddress}) {
     }
     
 export default AddressForm
-

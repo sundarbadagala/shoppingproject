@@ -9,7 +9,7 @@ import axios from 'axios'
 function Details(props) {
     const {id}= useParams()
     const [details, setDetails]= useState({})
-    console.log(id)
+    //console.log(id)
     useEffect(()=>{
         axios.get(`https://fakestoreapi.com/products/${id}`)
         .then(res => setDetails(res.data))
@@ -31,9 +31,9 @@ function Details(props) {
                 <div><br/>
                 <ButtonGroup>
                     <Link to='/'>
-                        <Button variant='outline-primary'>Go To Home</Button>
+                        <Button variant='outline-dark'>Go To Home</Button>
                     </Link>
-                    <Button variant='outline-primary' onClick={()=>props.addToCart(details.id)}>Add To Cart</Button>
+                    <Button variant='outline-dark' onClick={()=>props.addToCart(details.id)}>Add To Cart</Button>
                 </ButtonGroup>
                 </div>
             </Col>

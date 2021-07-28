@@ -5,7 +5,7 @@ import CartList from './CartList'
 import Checkout from '../Checkout/Checkout'
 
 function Cart(props) {
-    console.log(props.cart)
+    // console.log(props.cart)
     return (
         <Container fluid>
             <Row>
